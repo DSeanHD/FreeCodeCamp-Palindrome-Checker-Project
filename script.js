@@ -7,6 +7,8 @@ checkBtn.addEventListener("click", palindrome);
 function palindrome() {
     if (textInput.value == "") {
         alert("Please input a value");
+        result.innerHTML = "";
+        return;
     }
 
     const processedStr = textInput.value.replace(/[\W_]/g, '').toLowerCase();
