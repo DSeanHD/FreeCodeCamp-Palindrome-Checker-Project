@@ -24,3 +24,4 @@ let checkPalindrome = () => {
 }
 
 checkBtn.addEventListener("click", checkPalindrome);
+textInput.addEventListener("keyup", e => e.key == "Enter" ? checkPalindrome() : null);
