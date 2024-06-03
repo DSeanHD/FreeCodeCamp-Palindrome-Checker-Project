@@ -2,28 +2,25 @@ let textInput = document.getElementById("text-input");
 let checkBtn = document.getElementById("check-btn");
 let result = document.getElementById("result");
 
-checkBtn.addEventListener("click", palindrome);
+let checkPalindrome = () => {
+  const regex = /[\W_]/gi;
+  let userInput = textInput.value.replace(regex, "").toLowerCase();
+  let userInputReverse = userInput.split("").reverse().join("").toLowerCase();
 
-function palindrome() {
-    if (textInput.value == "") {
-        alert("Please input a value");
-        result.innerHTML = "";
-        return;
-    }
+  if (userInput === "") {
+    alert("Please input a value");
+    return null;
+  }
 
-    const processedStr = textInput.value.replace(/[\W_]/g, '').toLowerCase();
-    let isPalindrome = true;
-
-    for (let i = 0; i < Math.floor(processedStr.length / 2); i++) {
-        if (processedStr[i] !== processedStr[processedStr.length - 1 - i]) {
-            isPalindrome = false;
-            break;
-        }
-    }
-
-    if (isPalindrome) {
-        result.innerHTML = textInput.value + " is a palindrome";
-    } else {
-        result.innerHTML = textInput.value + " is not a palindrome";
-    }
+  if (userInput === userInputReverse) {
+    result.innerHTML = `${textInput.value} is a palindrome`;
+  } else {
+    result.innerHTML = `${textInput.value} is not a palindrome`;
+  }
+  
+  // For debugging purposes
+  console.log(userInput);
+  console.log(userInputReverse);
 }
+
+checkBtn.addEventListener("click", checkPalindrome);
