@@ -13,9 +13,9 @@ let checkPalindrome = () => {
   }
 
   if (userInput === userInputReverse) {
-    result.innerHTML = `${textInput.value} is a palindrome`;
+    result.innerHTML = `<b>${textInput.value}</b> is a palindrome`;
   } else {
-    result.innerHTML = `${textInput.value} is not a palindrome`;
+    result.innerHTML = `<b>${textInput.value}</b> is not a palindrome`;
   }
   
   // For debugging purposes
